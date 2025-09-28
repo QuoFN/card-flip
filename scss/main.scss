@@ -1,0 +1,447 @@
+$preview: #232e3c;
+
+$mobile: 480px;
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1330px;
+
+body {
+  min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  background: linear-gradient(-45deg, #232e3c, #ff9a9e, #8dfbcd, #8e37d7);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  
+  @media (max-width: $mobile) {
+    overflow-y: auto;
+    padding: 20px 0;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: $desktop;
+  padding: 0 15px;
+  margin: 0 auto;
+  height: 100vh;
+  
+  @media (max-width: $tablet) {
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 15px;
+  }
+  
+  @media (max-width: $mobile) {
+    padding: 20px 10px;
+    align-items: flex-start;
+  }
+}
+
+.card {
+  width: 100%;
+  max-width: 500px;
+  height: 600px;
+  perspective: 1000px;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(50px) scale(0.9);
+  animation: cardAppear 0.8s ease forwards 0.5s;
+
+  @media (max-width: $laptop) {
+    max-width: 450px;
+    height: 550px;
+  }
+  
+  @media (max-width: $tablet) {
+    max-width: 400px;
+    height: 500px;
+    perspective: 800px;
+  }
+  
+  @media (max-width: $tablet) and (orientation: landscape) {
+    height: 400px;
+    max-width: 350px;
+  }
+  
+  @media (max-width: $mobile) {
+    max-width: 100%;
+    height: 450px;
+    perspective: 600px;
+    margin: 0 auto;
+    
+    @media (orientation: portrait) {
+      height: 500px;
+    }
+    
+    @media (orientation: landscape) {
+      height: 320px;
+      max-width: 300px;
+    }
+  }
+
+  @media (max-width: 360px) {
+    height: 420px;
+    
+    @media (orientation: landscape) {
+      height: 280px;
+    }
+  }
+
+  &__3d-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    
+    @media (max-width: $mobile) {
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+  }
+
+  &.flipped &__3d-container {
+    transform: rotateY(180deg);
+  }
+
+  &__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+
+    @media (max-width: $mobile) {
+      border-radius: 15px;
+    }
+
+    &--front {
+      transform: rotateY(0deg);
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+@keyframes cardAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card__in {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #232e3c, #1e0001, #8dfbcd, #c737d7);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  border-radius: 20px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  
+  @media (max-width: $tablet) {
+    padding: 40px;
+  }
+  
+  @media (max-width: $mobile) {
+    padding: 30px 25px;
+    
+    @media (orientation: landscape) {
+      padding: 20px 15px;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    padding: 25px 20px;
+  }
+}
+
+.card__back-content {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+
+  .contact-list {
+    margin: 100px 0;
+    
+    @media (max-width: $tablet) {
+      margin: 60px 0;
+    }
+    
+    @media (max-width: $mobile) {
+      margin: 40px 0;
+      
+      @media (orientation: landscape) {
+        margin: 20px 0;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      text-align: left;
+      padding-left: 20px;
+      transition: transform 0.4s ease, padding-left 0.4s ease;
+      
+      @media (max-width: $mobile) {
+        font-size: 1.1rem;
+        padding-left: 15px;
+        margin-bottom: 12px;
+        
+        @media (orientation: landscape) {
+          font-size: 1rem;
+          margin-bottom: 8px;
+        }
+      }
+      
+      @media (max-width: 360px) {
+        font-size: 1rem;
+        padding-left: 10px;
+      }
+
+      &:hover {
+        transform: translateX(10px);
+        padding-left: 30px;
+        
+        @media (max-width: $mobile) {
+          transform: translateX(5px);
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+
+  .back-qr {
+    margin-top: 20px;
+    
+    @media (max-width: $mobile) {
+      margin-top: 15px;
+    }
+  }
+}
+
+.card__in-up {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  
+  @media (max-width: $mobile) {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 15px;
+    
+    @media (orientation: landscape) {
+      flex-direction: row;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.card__title-box {
+  display: block;
+  
+  @media (max-width: $mobile) and (orientation: landscape) {
+    text-align: left;
+  }
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  
+  @media (max-width: $tablet) {
+    font-size: 2.2rem;
+  }
+  
+  @media (max-width: $mobile) {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    
+    @media (orientation: landscape) {
+      font-size: 1.6rem;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    font-size: 1.6rem;
+  }
+}
+
+.subtitle {
+  color: #fff;
+  font-size: 1.2rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  max-width: fit-content;
+  padding: 8px 15px;
+  border-radius: 15px;
+  
+  @media (max-width: $mobile) {
+    font-size: 1.1rem;
+    padding: 6px 12px;
+    border-radius: 12px;
+    margin: 0 auto;
+    
+    @media (orientation: landscape) {
+      font-size: 1rem;
+      margin: 0;
+    }
+  }
+}
+
+.card__qr {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: $mobile) {
+    margin-top: 15px;
+    
+    @media (orientation: landscape) {
+      margin-top: 0;
+      margin-left: 15px;
+    }
+  }
+}
+
+.qr__img {
+  width: 120px;
+  border-radius: 15px;
+  
+  @media (max-width: $tablet) {
+    width: 100px;
+  }
+  
+  @media (max-width: $mobile) {
+    width: 90px;
+    border-radius: 12px;
+    
+    @media (orientation: landscape) {
+      width: 80px;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    width: 80px;
+  }
+}
+
+.card__image-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-grow: 1;
+  
+  @media (max-width: $mobile) {
+    margin-bottom: 20px;
+    
+    @media (orientation: landscape) {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.card__image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  
+  @media (max-width: $tablet) {
+    max-height: 180px;
+  }
+  
+  @media (max-width: $mobile) {
+    max-height: 150px;
+    border-radius: 12px;
+    
+    @media (orientation: landscape) {
+      max-height: 120px;
+    }
+  }
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  @media (max-width: $mobile) {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    
+    @media (orientation: landscape) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}
+
+.card__brand-title {
+  font-size: 1.3rem;
+  
+  @media (max-width: $mobile) {
+    font-size: 1.1rem;
+  }
+}
+
+.card__age-title {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  
+  @media (max-width: $mobile) {
+    font-size: 0.9rem;
+  }
+}
+
+.card__age-subtitle {
+  font-size: 0.9rem;
+  
+  @media (max-width: $mobile) {
+    font-size: 0.8rem;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .card__qr:hover {
+    transform: none;
+  }
+  
+  .contact-list p:hover {
+    transform: none;
+    padding-left: 20px;
+  }
+}
+
+@media (min-height: 1000px) {
+  .card {
+    height: 700px;
+    max-width: 550px;
+  }
+} 
