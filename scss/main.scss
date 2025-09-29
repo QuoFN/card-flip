@@ -12,11 +12,6 @@ body {
   background: linear-gradient(-45deg, #232e3c, #ff9a9e, #8dfbcd, #8e37d7);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
-  
-  @media (max-width: $mobile) {
-    overflow-y: auto;
-    padding: 20px 0;
-  }
 }
 
 @keyframes gradient {
@@ -31,24 +26,123 @@ body {
   }
 }
 
-.container {
+// Header styles
+.header {
+  padding: 50px 0 0;
+
+  &__menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    letter-spacing: 3px;
+
+    @media (max-width: $tablet) {
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: $mobile) {
+      gap: 15px;
+      letter-spacing: 1px;
+    }
+  }
+
+  &__menu-link {
+    text-shadow: #232e3c99 0 2px 1px;
+    font-size: 1.12rem;
+    color: #f8f9fa;
+    padding: 10px 80px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      #25001e9a,
+      #232e3c,
+      transparent
+    );
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.535);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+    @media (max-width: $laptop) {
+      padding: 10px 60px;
+    }
+
+    @media (max-width: $tablet) {
+      padding: 8px 40px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: $mobile) {
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      backdrop-filter: blur(10px);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: all 0.5s ease;
+    }
+
+    &:hover {
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      transform: scale(1.1);
+      background: rgba(111, 217, 255, 0.163);
+      border-color: #022a025d;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+
+      @media (max-width: $mobile) {
+        transform: scale(1.05);
+      }
+
+      &::before {
+        left: 100%;
+      }
+    }
+  }
+}
+
+// Main container
+.main {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: calc(100vh - 80px);
+
+  @media (max-width: $tablet) {
+    min-height: calc(100vh - 60px);
+  }
+}
+
+.container {
   max-width: $desktop;
   padding: 0 15px;
   margin: 0 auto;
-  height: 100vh;
-  
+  width: 100%;
+
   @media (max-width: $tablet) {
-    height: auto;
-    min-height: 100vh;
-    padding: 40px 15px;
+    padding: 0 20px;
   }
-  
+
   @media (max-width: $mobile) {
-    padding: 20px 10px;
-    align-items: flex-start;
+    padding: 0 15px;
   }
 }
 
@@ -61,45 +155,23 @@ body {
   opacity: 0;
   transform: translateY(50px) scale(0.9);
   animation: cardAppear 0.8s ease forwards 0.5s;
+  margin: 0 auto;
 
   @media (max-width: $laptop) {
     max-width: 450px;
     height: 550px;
   }
-  
+
   @media (max-width: $tablet) {
     max-width: 400px;
     height: 500px;
     perspective: 800px;
   }
-  
-  @media (max-width: $tablet) and (orientation: landscape) {
-    height: 400px;
-    max-width: 350px;
-  }
-  
+
   @media (max-width: $mobile) {
-    max-width: 100%;
+    max-width: 350px;
     height: 450px;
     perspective: 600px;
-    margin: 0 auto;
-    
-    @media (orientation: portrait) {
-      height: 500px;
-    }
-    
-    @media (orientation: landscape) {
-      height: 320px;
-      max-width: 300px;
-    }
-  }
-
-  @media (max-width: 360px) {
-    height: 420px;
-    
-    @media (orientation: landscape) {
-      height: 280px;
-    }
   }
 
   &__3d-container {
@@ -108,9 +180,9 @@ body {
     height: 100%;
     transform-style: preserve-3d;
     transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    
+
     @media (max-width: $mobile) {
-      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      transition: transform 0.6s ease;
     }
   }
 
@@ -161,21 +233,13 @@ body {
   display: flex;
   flex-direction: column;
   color: #fff;
-  
+
   @media (max-width: $tablet) {
     padding: 40px;
   }
-  
+
   @media (max-width: $mobile) {
-    padding: 30px 25px;
-    
-    @media (orientation: landscape) {
-      padding: 20px 15px;
-    }
-  }
-  
-  @media (max-width: 360px) {
-    padding: 25px 20px;
+    padding: 30px;
   }
 }
 
@@ -186,17 +250,13 @@ body {
 
   .contact-list {
     margin: 100px 0;
-    
+
     @media (max-width: $tablet) {
       margin: 60px 0;
     }
-    
+
     @media (max-width: $mobile) {
       margin: 40px 0;
-      
-      @media (orientation: landscape) {
-        margin: 20px 0;
-      }
     }
 
     p {
@@ -205,27 +265,21 @@ body {
       text-align: left;
       padding-left: 20px;
       transition: transform 0.4s ease, padding-left 0.4s ease;
-      
-      @media (max-width: $mobile) {
+
+      @media (max-width: $tablet) {
         font-size: 1.1rem;
+      }
+
+      @media (max-width: $mobile) {
+        font-size: 1rem;
         padding-left: 15px;
         margin-bottom: 12px;
-        
-        @media (orientation: landscape) {
-          font-size: 1rem;
-          margin-bottom: 8px;
-        }
-      }
-      
-      @media (max-width: 360px) {
-        font-size: 1rem;
-        padding-left: 10px;
       }
 
       &:hover {
         transform: translateX(10px);
         padding-left: 30px;
-        
+
         @media (max-width: $mobile) {
           transform: translateX(5px);
           padding-left: 20px;
@@ -236,7 +290,7 @@ body {
 
   .back-qr {
     margin-top: 20px;
-    
+
     @media (max-width: $mobile) {
       margin-top: 15px;
     }
@@ -248,46 +302,33 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
-  
+
   @media (max-width: $mobile) {
     flex-direction: column;
     text-align: center;
-    margin-bottom: 15px;
-    
-    @media (orientation: landscape) {
-      flex-direction: row;
-      margin-bottom: 10px;
-    }
+    gap: 15px;
   }
 }
 
 .card__title-box {
   display: block;
-  
-  @media (max-width: $mobile) and (orientation: landscape) {
-    text-align: left;
+
+  @media (max-width: $mobile) {
+    text-align: center;
   }
 }
 
 .title {
   font-size: 2.5rem;
   margin-bottom: 15px;
-  
+
   @media (max-width: $tablet) {
     font-size: 2.2rem;
   }
-  
+
   @media (max-width: $mobile) {
     font-size: 1.8rem;
     margin-bottom: 10px;
-    
-    @media (orientation: landscape) {
-      font-size: 1.6rem;
-    }
-  }
-  
-  @media (max-width: 360px) {
-    font-size: 1.6rem;
   }
 }
 
@@ -298,33 +339,33 @@ body {
   max-width: fit-content;
   padding: 8px 15px;
   border-radius: 15px;
-  
-  @media (max-width: $mobile) {
+
+  @media (max-width: $tablet) {
     font-size: 1.1rem;
+  }
+
+  @media (max-width: $mobile) {
+    font-size: 1rem;
     padding: 6px 12px;
     border-radius: 12px;
     margin: 0 auto;
-    
-    @media (orientation: landscape) {
-      font-size: 1rem;
-      margin: 0;
-    }
   }
 }
 
 .card__qr {
   transition: transform 0.3s ease;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.05);
   }
-  
+
   @media (max-width: $mobile) {
-    margin-top: 15px;
-    
-    @media (orientation: landscape) {
-      margin-top: 0;
-      margin-left: 15px;
+    margin-top: 10px;
+
+    &:active {
+      transform: scale(0.95) !important;
+      transition: transform 0.1s ease;
     }
   }
 }
@@ -332,22 +373,14 @@ body {
 .qr__img {
   width: 120px;
   border-radius: 15px;
-  
+
   @media (max-width: $tablet) {
     width: 100px;
   }
-  
+
   @media (max-width: $mobile) {
-    width: 90px;
-    border-radius: 12px;
-    
-    @media (orientation: landscape) {
-      width: 80px;
-    }
-  }
-  
-  @media (max-width: 360px) {
     width: 80px;
+    border-radius: 12px;
   }
 }
 
@@ -356,13 +389,9 @@ body {
   justify-content: center;
   margin-bottom: 30px;
   flex-grow: 1;
-  
+
   @media (max-width: $mobile) {
     margin-bottom: 20px;
-    
-    @media (orientation: landscape) {
-      margin-bottom: 15px;
-    }
   }
 }
 
@@ -371,18 +400,14 @@ body {
   max-height: 200px;
   object-fit: cover;
   border-radius: 15px;
-  
+
   @media (max-width: $tablet) {
     max-height: 180px;
   }
-  
+
   @media (max-width: $mobile) {
     max-height: 150px;
     border-radius: 12px;
-    
-    @media (orientation: landscape) {
-      max-height: 120px;
-    }
   }
 }
 
@@ -390,22 +415,16 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   @media (max-width: $mobile) {
-    flex-direction: column;
     gap: 10px;
-    align-items: flex-start;
-    
-    @media (orientation: landscape) {
-      flex-direction: row;
-      align-items: center;
-    }
+    text-align: center;
   }
 }
 
 .card__brand-title {
   font-size: 1.3rem;
-  
+
   @media (max-width: $mobile) {
     font-size: 1.1rem;
   }
@@ -414,7 +433,7 @@ body {
 .card__age-title {
   font-size: 1rem;
   margin-bottom: 5px;
-  
+
   @media (max-width: $mobile) {
     font-size: 0.9rem;
   }
@@ -422,7 +441,7 @@ body {
 
 .card__age-subtitle {
   font-size: 0.9rem;
-  
+
   @media (max-width: $mobile) {
     font-size: 0.8rem;
   }
@@ -432,16 +451,366 @@ body {
   .card__qr:hover {
     transform: none;
   }
-  
+
   .contact-list p:hover {
     transform: none;
     padding-left: 20px;
   }
+
+  .header__menu-link:hover {
+    transform: none;
+  }
 }
 
-@media (min-height: 1000px) {
-  .card {
-    height: 700px;
-    max-width: 550px;
+// Секция about остается без изменений (уже имеет адаптив)
+.about {
+  padding: 80px 0;
+  background: rgba(35, 46, 60, 0.79);
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+
+    @media (max-width: $tablet) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
   }
-} 
+
+  &__info {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+
+    @media (max-width: $mobile) {
+      display: contents;
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  &__image {
+    flex-shrink: 0;
+
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #8dfbcd;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__text {
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, #ff9a9e, #8dfbcd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  &__stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    @media (max-width: $mobile) {
+      justify-content: center;
+    }
+
+    .stat {
+      text-align: center;
+
+      &__number {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #8dfbcd;
+        margin-bottom: 5px;
+      }
+
+      &__label {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+  }
+}
+
+.skills {
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #fff;
+  }
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+
+  &__name {
+    min-width: 140px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  &__percent {
+    min-width: 35px;
+    text-align: right;
+    color: #8dfbcd;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+}
+
+.progress-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+
+  &__fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff9a9e, #8dfbcd);
+    border-radius: 10px;
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 15px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+      border-radius: 0 10px 10px 0;
+    }
+  }
+}
+
+.gallery {
+  padding: 100px 0;
+  background: rgba(35, 46, 60, 0.2);
+
+  &__title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #ff9a9e, #8dfbcd);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    margin-bottom: 60px;
+  }
+}
+
+// Стили для фильтров
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 50px;
+  padding: 0 20px;
+
+  @media (max-width: $mobile) {
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+}
+
+.filter-btn {
+  padding: 12px 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  &.active {
+    background: linear-gradient(45deg, #ff9a9e, #8dfbcd);
+    color: #232e3c;
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(141, 251, 205, 0.3);
+  }
+
+  @media (max-width: $mobile) {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+}
+
+// Сетка проектов
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+
+  @media (max-width: $mobile) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
+  }
+}
+
+.project-card {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  height: 300px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  opacity: 1;
+  transform: scale(1);
+
+  // Анимация для фильтрации
+  &.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+    position: absolute;
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(141, 251, 205, 0.1);
+
+    .project-card__overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card__image img {
+      transform: scale(1.1);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+      to top,
+      rgba(35, 46, 60, 0.95),
+      rgba(35, 46, 60, 0.7)
+    );
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+  }
+
+  &__title {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  &__desc {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  &__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  &__links {
+    display: flex;
+    gap: 12px;
+  }
+}
+
+.tech-tag {
+  padding: 4px 12px;
+  background: rgba(141, 251, 205, 0.2);
+  border: 1px solid rgba(141, 251, 205, 0.3);
+  border-radius: 15px;
+  color: #8dfbcd;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.project-link {
+  padding: 8px 20px;
+  background: rgba(141, 251, 205, 0.2);
+  border: 1px solid rgba(141, 251, 205, 0.3);
+  border-radius: 20px;
+  color: #8dfbcd;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(141, 251, 205, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(141, 251, 205, 0.2);
+  }
+}

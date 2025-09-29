@@ -1,69 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-        <meta name="theme-color" content="#232e3c" />
-        <title>Card - Pyzhov Saveliy</title>
-        <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/main.css" />
-      </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+    <meta name="theme-color" content="#232e3c" />
+    <title>Card - Pyzhov Saveliy</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
   <body>
-    <div class="container">
-      <div class="card" id="flipCard">
-        <div class="card__3d-container">
-          <!-- Передняя сторона -->
-          <div class="card__face card__face--front">
-            <div class="card__in">
-              <div class="card__in-up">
-                <div class="card__title-box">
-                  <h1 class="title">Pyzhov Saveliy</h1>
-                  <h2 class="subtitle">Tap on card</h2>
+    <header class="header" id="hero">
+      <div class="container">
+        <nav class="header__menu">
+          <a class="header__menu-link" href="#hero">Главная</a>
+          <a class="header__menu-link" href="#me">Обо мне</a>
+          <a class="header__menu-link" href="#gallery">Галерея</a>
+          <a class="header__menu-link" href="#">Контакты</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div class="card" id="flipCard">
+          <div class="card__3d-container">
+            <!-- Передняя сторона -->
+            <div class="card__face card__face--front">
+              <div class="card__in">
+                <div class="card__in-up">
+                  <div class="card__title-box">
+                    <h1 class="title">Pyzhov Saveliy</h1>
+                    <h2 class="subtitle">Tap on card</h2>
+                  </div>
+                  <div class="card__qr">
+                    <a target="_blank" href="https://t.me/quofn" class="qr">
+                      <img
+                        class="qr__img"
+                        src="./images/qr.png"
+                        alt="QR Code"
+                      />
+                    </a>
+                  </div>
                 </div>
-                <div class="card__qr">
-                  <a href="https://t.me/quofn" class="qr">
-                    <img class="qr__img" src="./images/qr.png" alt="QR Code" />
-                  </a>
+                <div class="card__image-box">
+                  <img
+                    class="card__image"
+                    src="./images/i_am.jpg"
+                    alt="Photo"
+                  />
                 </div>
-              </div>
-              <div class="card__image-box">
-                <img class="card__image" src="./images/i_am.jpg" alt="Photo" />
-              </div>
-              <div class="card__footer">
-                <div class="card__brand">
-                  <h4 class="card__brand-title">Photographer</h4>
-                </div>
-                <div class="card__age">
-                  <p class="card__age-title">EXP Date</p>
-                  <p class="card__age-subtitle">01.05/2045</p>
+                <div class="card__footer">
+                  <div class="card__brand">
+                    <h4 class="card__brand-title">
+                      Layout Designer</h4>
+                  </div>
+                  <div class="card__age">
+                    <p class="card__age-title">EXP Date</p>
+                    <p class="card__age-subtitle">01.05/2045</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          
-          <!-- Задняя сторона -->
-          <div class="card__face card__face--back">
-            <div class="card__in">
-              <div class="card__back-content">
-                <h1 class="title">Contact Info</h1>
-                <div class="contact-list">
-                  <p>📱 Telegram: @quofn</p>
-                  <p>📧 Email: savpyzhov@mail.ru</p>
-                  <p>💼 Portfolio: saveliy.com</p>
-                  <p>👨‍💻 GitHub: https://github.com/QuoFN</p>
-                </div>
-                <div class="card__qr back-qr">
-                  <a href="https://t.me/quofn" class="qr">
-                    <img class="qr__img" src="./images/qr.png" alt="QR Code" />
-                  </a>
+
+            <!-- Задняя сторона -->
+            <div class="card__face card__face--back">
+              <div class="card__in">
+                <div class="card__back-content">
+                  <h1 class="title">Contact Info</h1>
+                  <div class="contact-list">
+                    <p>📱 Telegram: @quofn</p>
+                    <p>📧 Email: savpyzhov@mail.ru</p>
+                    <p>💼 Portfolio: saveliy.com</p>
+                    <p>👨‍💻 GitHub: https://github.com/QuoFN</p>
+                  </div>
+                  <div class="card__qr back-qr">
+                    <a target="_blank" href="https://t.me/quofn" class="qr">
+                      <img class="qr__img" src="./images/qr.png" alt="QR Code">
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </main>
+
+    <section class="about" id="me">
+      <div class="container">
+        <div class="about__content">
+          <!-- Левая часть - информация -->
+          <div class="about__info">
+            <div class="about__image">
+              <img src="./images/i_am.jpg" alt="Pyzhov Saveliy" />
+            </div>
+            <div class="about__text">
+              <h2>Frontend Developer & UI/UX Enthusiast</h2>
+              <p>
+                Превращаю сложные задачи в элегантные и интуитивные
+                веб-интерфейсы. Создаю не просто код, а цифровые впечатления.
+              </p>
+              <div class="about__stats">
+                <div class="stat">
+                  <span class="stat__number">50+</span>
+                  <span class="stat__label">Проектов</span>
+                </div>
+                <div class="stat">
+                  <span class="stat__number">2+</span>
+                  <span class="stat__label">Года опыта</span>
+                </div>
+                <div class="stat">
+                  <span class="stat__number">100%</span>
+                  <span class="stat__label">Страсть к коду</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Правая часть - навыки -->
+          <div class="skills">
+            <h3>Технические навыки</h3>
+
+            <div class="skill">
+              <span class="skill__name">HTML/CSS</span>
+              <div class="progress-bar" data-progress="95">
+                <div class="progress-bar__fill"></div>
+              </div>
+              <span class="skill__percent">95%</span>
+            </div>
+
+            <div class="skill">
+              <span class="skill__name">JavaScript</span>
+              <div class="progress-bar" data-progress="88">
+                <div class="progress-bar__fill"></div>
+              </div>
+              <span class="skill__percent">88%</span>
+            </div>
+
+            <div class="skill">
+              <span class="skill__name">Webpack/Vite</span>
+              <div class="progress-bar" data-progress="85">
+                <div class="progress-bar__fill"></div>
+              </div>
+              <span class="skill__percent">85%</span>
+            </div>
+
+            <div class="skill">
+              <span class="skill__name">UI/UX Design</span>
+              <div class="progress-bar" data-progress="80">
+                <div class="progress-bar__fill"></div>
+              </div>
+              <span class="skill__percent">80%</span>
+            </div>
+
+            <div class="skill">
+              <span class="skill__name">Git & GitHub</span>
+              <div class="progress-bar" data-progress="90">
+                <div class="progress-bar__fill"></div>
+              </div>
+              <span class="skill__percent">90%</span>
+            </div>
+
+            <div class="skill">
+              <span class="skill__name">SASS/SCSS</span>
+              <div class="progress-bar" data-progress="92">
+                <div class="progress-bar__fill"></div>
+              </div>
+              <span class="skill__percent">92%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <h2 class="gallery__title">Мои проекты</h2>
+        <p class="gallery__subtitle">От идеи до реализации</p>
+        
+        <!-- Фильтры -->
+        <div class="gallery-filters">
+          <button class="filter-btn active" data-filter="all">Все проекты</button>
+          <button class="filter-btn" data-filter="javascript">JavaScript</button>
+          <button class="filter-btn" data-filter="vite">Vite</button>
+          <button class="filter-btn" data-filter="jquery">jQuery </button>
+          <button class="filter-btn" data-filter="html-css">HTML/CSS</button>
+        </div>
+        <!-- Сетка проектов -->
+        <div class="projects-grid">
+          <!-- Проект 1 -->
+          <div class="project-card" data-category="javascript jquery">
+            <div class="project-card__image">
+              <img src="./images/Alternate.png" alt="Рекламный сайт Автосервиса">
+              <div class="project-card__overlay">
+                <h3 class="project-card__title">Finsweet</h3>
+                <p class="project-card__desc">Реакламный сайт для автосервиса</p>
+                <div class="project-card__tech">
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">SCSS</span>
+                  <span class="tech-tag">jQuery</span>
+                </div>
+                <div class="project-card__links">
+                  <a href="https://quofn.github.io/Alternate-layout/" class="project-link" target="_blank">Демо</a>
+                  <a href="https://github.com/QuoFN/Alternate-layout" class="project-link" target="_blank">Код</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Проект 2 -->
+          <div class="project-card" data-category="vite javascript">
+            <div class="project-card__image">
+              <img src="./images/Womazing.png" alt="Интенет магазин одежды с большим функционалом">
+              <div class="project-card__overlay">
+                <h3 class="project-card__title">Womazing</h3>
+                <p class="project-card__desc">Интенет магазин одежды с большим функционалом</p>
+                <div class="project-card__tech">
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">Vite</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                </div>
+                <div class="project-card__links">
+                  <a href="https://quofn.github.io/graduate_work/" class="project-link" target="_blank">Демо</a>
+                  <a href="https://github.com/QuoFN/graduate_work/tree/master/docs" class="project-link" target="_blank">Код</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Проект 3 -->
+          <div class="project-card" data-category="html-css javascript">
+            <div class="project-card__image">
+              <img src="./images/WakeBake.png" alt="Обучающая программа по испечению тортов">
+              <div class="project-card__overlay">
+                <h3 class="project-card__title">Wake & Bake</h3>
+                <p class="project-card__desc">Обучающая программа по испечению тортов</p>
+                <div class="project-card__tech">
+                  <span class="tech-tag">HTML5</span>
+                  <span class="tech-tag">SCSS</span>
+                  <span class="tech-tag">JavaScript</span>
+                </div>
+                <div class="project-card__links">
+                  <a href="https://quofn.github.io/pancake/" class="project-link" target="_blank">Демо</a>
+                  <a href="https://github.com/QuoFN/pancake" class="project-link" target="_blank">Код</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Проект 4 -->
+          <!-- <div class="project-card" data-category="vite javascript">
+            <div class="project-card__image">
+              <img src="./images/project4.jpg" alt="Приложение для задач">
+              <div class="project-card__overlay">
+                <h3 class="project-card__title">TaskFlow</h3>
+                <p class="project-card__desc">Прогрессивное веб-приложение для управления задачами</p>
+                <div class="project-card__tech">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">Redux</span>
+                  <span class="tech-tag">Firebase</span>
+                </div>
+                <div class="project-card__links">
+                  <a href="https://taskflow-app.com" class="project-link" target="_blank">Демо</a>
+                  <a href="https://github.com/username/taskflow" class="project-link" target="_blank">Код</a>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          
+          <!-- Проект 5 -->
+          <!-- <div class="project-card" data-category="html-css">
+            <div class="project-card__image">
+              <img src="./images/project5.jpg" alt="Лендинг для стартапа">
+              <div class="project-card__overlay">
+                <h3 class="project-card__title">StartupLanding</h3>
+                <p class="project-card__desc">Яркий лендинг с анимациями и формой захвата лидов</p>
+                <div class="project-card__tech">
+                  <span class="tech-tag">HTML5</span>
+                  <span class="tech-tag">CSS3</span>
+                  <span class="tech-tag">GSAP</span>
+                </div>
+                <div class="project-card__links">
+                  <a href="https://startup-landing.com" class="project-link" target="_blank">Демо</a>
+                  <a href="https://github.com/username/startuplanding" class="project-link" target="_blank">Код</a>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          
+          <!-- Проект 6 -->
+          <!-- <div class="project-card" data-category="vue javascript">
+            <div class="project-card__image">
+              <img src="./images/project6.jpg" alt="Погодное приложение">
+              <div class="project-card__overlay">
+                <h3 class="project-card__title">WeatherApp</h3>
+                <p class="project-card__desc">Приложение для прогноза погоды с красивыми визуализациями</p>
+                <div class="project-card__tech">
+                  <span class="tech-tag">Vue.js</span>
+                  <span class="tech-tag">API</span>
+                  <span class="tech-tag">Chart.js</span>
+                </div>
+                <div class="project-card__links">
+                  <a href="https://weatherapp.com" class="project-link" target="_blank">Демо</a>
+                  <a href="https://github.com/username/weatherapp" class="project-link" target="_blank">Код</a>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
+    <!-- Галерея проектов (пока можно заглушки) -->
+    <footer></footer>
+    <!-- Контакты + повтор QR-кода -->
+
     <script src="js/main.js"></script>
   </body>
 </html>
