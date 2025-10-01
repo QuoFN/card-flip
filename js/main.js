@@ -28,6 +28,49 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 150);
     });
   });
+
+  const burger = document.querySelector('.header__burger');
+  const menu = document.querySelector('.header__menu');
+  const overlay = document.querySelector('.header__overlay');
+  const menuLinks = document.querySelectorAll('.header__menu-link');
+
+  function handleScroll() {
+    if (window.scrollY > 50) {
+      burger.classList.add('scrolled');
+    } else {
+      burger.classList.remove('scrolled');
+    }
+  }
+
+  function toggleMenu() {
+    burger.classList.toggle('active');
+    menu.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+  }
+
+  window.addEventListener('scroll', handleScroll);
+  burger.addEventListener('click', toggleMenu);
+  overlay.addEventListener('click', toggleMenu);
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 480) {
+        toggleMenu();
+      }
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 480) {
+      burger.classList.remove('active');
+      menu.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  handleScroll();
 });
 
 function animateProgressBars() {
@@ -53,34 +96,27 @@ function animateProgressBars() {
 
 document.addEventListener('DOMContentLoaded', animateProgressBars);
 
-// Функция для фильтрации проектов
 function initGalleryFilters() {
   const filterButtons = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
   const projectsGrid = document.querySelector('.projects-grid');
   
-  // Добавляем обработчики для кнопок фильтров
   filterButtons.forEach(button => {
     button.addEventListener('click', function() {
-      // Убираем активный класс у всех кнопок
       filterButtons.forEach(btn => btn.classList.remove('active'));
-      // Добавляем активный класс текущей кнопке
       this.classList.add('active');
       
       const filterValue = this.getAttribute('data-filter');
       
-      // Фильтруем проекты
       projectCards.forEach(card => {
         const categories = card.getAttribute('data-category').split(' ');
         
         if (filterValue === 'all' || categories.includes(filterValue)) {
-          // Показываем проект
           card.classList.remove('hidden');
           setTimeout(() => {
             card.style.display = 'block';
           }, 300);
         } else {
-          // Скрываем проект
           card.classList.add('hidden');
           setTimeout(() => {
             card.style.display = 'none';
@@ -91,7 +127,6 @@ function initGalleryFilters() {
   });
 }
 
-// Анимация появления проектов при загрузке
 function animateProjects() {
   const projectCards = document.querySelectorAll('.project-card');
   
@@ -107,7 +142,6 @@ function animateProjects() {
   });
 }
 
-// Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
   initGalleryFilters();
   animateProjects();
@@ -117,3 +151,113 @@ function updateProjectsCount() {
   const visibleProjects = document.querySelectorAll('.project-card:not(.hidden)');
   document.getElementById('visibleCount').textContent = visibleProjects.length;
 }
+
+function initModal() {
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalClose = document.getElementById('modalClose');
+  const contactForm = document.getElementById('contactForm');
+  const ctaButtons = document.querySelectorAll('.main__cta-btn:not(.main__cta-btn--primary)');
+
+  function openModal() {
+    modalOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modalOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  ctaButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  modalClose.addEventListener('click', closeModal);
+
+  modalOverlay.addEventListener('click', function(e) {
+    if (e.target === modalOverlay) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message')
+    };
+
+    alert(`Сообщение отправлено!\n\nИмя: ${data.name}\nEmail: ${data.email}\nСообщение: ${data.message}`);
+    
+    closeModal();
+    
+    this.reset();
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  initModal();
+});
+
+function initSmoothScroll() {
+  const anchorLinks = document.querySelectorAll('a[href^="#"]');
+  
+  anchorLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (!targetElement) return;
+      
+      const burger = document.querySelector('.header__burger');
+      const menu = document.querySelector('.header__menu');
+      const overlay = document.querySelector('.header__overlay');
+      
+      if (burger && burger.classList.contains('active')) {
+        burger.classList.remove('active');
+        menu.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      
+      const headerHeight = document.querySelector('.header').offsetHeight;
+      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    });
+  });
+}
+
+function updateScrollHandler() {
+  const header = document.querySelector('.header');
+  
+  function handleScroll() {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+  
+  window.addEventListener('scroll', handleScroll);
+  handleScroll();
+}
+
