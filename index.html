@@ -1,29 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="theme-color" content="#232e3c" />
-    <title>Card - Pyzhov Saveliy</title>
+    
+    <!-- Основные SEO мета-теги -->
+    <title>Савелий Пыжов - Frontend разработчик | Создание современных веб-приложений</title>
+    <meta name="description" content="Frontend разработчик Савелий Пыжов. Создаю современные и интерактивные веб-приложения на HTML, CSS, JavaScript. Портфолио проектов и контакты.">
+    <meta name="keywords" content="frontend разработчик, веб-разработка, JavaScript, HTML, CSS, React, портфолио, создание сайтов">
+    <meta name="author" content="Савелий Пыжов">
+    
+    <!-- Open Graph мета-теги -->
+    <meta property="og:title" content="Савелий Пыжов - Frontend разработчик">
+    <meta property="og:description" content="Frontend разработчик. Создаю современные и интерактивные веб-приложения на HTML, CSS, JavaScript.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quofn.github.io/card-flip">
+    <meta property="og:image" content="https://quofn.github.io/card-flip/images/og-image.jpg">
+    <meta property="og:site_name" content="Портфолио Савелия Пыжова">
+    
+    <!-- Twitter Card мета-теги -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Савелий Пыжов - Frontend разработчик">
+    <meta name="twitter:description" content="Frontend разработчик. Создаю современные и интерактивные веб-приложения.">
+    <meta name="twitter:image" content="https://quofn.github.io/card-flip/images/og-image.jpg">
+    
+    <!-- Дополнительные SEO мета-теги -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://quofn.github.io/card-flip">
+    
+    <!-- Schema.org структурированные данные -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Савелий Пыжов",
+      "jobTitle": "Frontend разработчик",
+      "url": "https://quofn.github.io/card-flip",
+      "sameAs": [
+        "https://github.com/QuoFN",
+        "https://t.me/quofn"
+      ],
+      "knowsAbout": ["HTML", "CSS", "JavaScript", "Frontend Development", "Web Development", "UI/UX Design"],
+      "description": "Frontend разработчик, создающий современные и интерактивные веб-приложения",
+      "email": "savpyzhov@mail.ru"
+    }
+    </script>
+    
+    <!-- Favicon и иконки -->
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/main.css" />
   </head>
-  <body>
+  <body itemscope itemtype="https://schema.org/WebPage">
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+      <div class="preloader__content">
+        <div class="preloader__spinner">
+          <div class="preloader__dot"></div>
+          <div class="preloader__dot"></div>
+          <div class="preloader__dot"></div>
+          <div class="preloader__dot"></div>
+        </div>
+        <div class="preloader__text">
+          <span class="preloader__name" itemprop="name">Савелий</span>
+          <span class="preloader__title" itemprop="jobTitle">Frontend Developer</span>
+        </div>
+        <div class="preloader__progress">
+          <div class="preloader__progress-bar"></div>
+        </div>
+      </div>
+    </div>
+
     <header class="header" id="hero">
       <div class="container">
-        <button class="header__burger">
+        <button class="header__burger" aria-label="Открыть меню">
           <span></span>
           <span></span>
           <span></span>
         </button>
-        <nav class="header__menu">
-          <a class="header__menu-link" href="#hero">Главная</a>
+        <nav class="header__menu" aria-label="Основная навигация">
+          <a class="header__menu-link" href="#top">Главная</a>
           <a class="header__menu-link" href="#me">Обо мне</a>
-          <a class="header__menu-link" href="#gallery">Галерея</a>
+          <a class="header__menu-link" href="#gallery">Проекты</a>
           <a class="header__menu-link" href="#contact">Контакты</a>
         </nav>
       </div>
@@ -38,15 +103,12 @@
       </div>
       <div class="container">
         <div class="main__intro">
-          <h1 class="main__title">Привет, я Савелий</h1>
-          <p class="main__subtitle">
-            Фронтенд разработчик, создающий современные и интерактивные
-            веб-приложения
+          <h1 class="main__title" itemprop="headline">Привет, я Савелий</h1>
+          <p class="main__subtitle" itemprop="description">
+            Фронтенд разработчик, создающий современные и интерактивные веб-приложения
           </p>
           <div class="main__cta-buttons">
-            <a href="#gallery" class="main__cta-btn main__cta-btn--primary"
-              >Мои проекты</a
-            >
+            <a href="#gallery" class="main__cta-btn main__cta-btn--primary">Мои проекты</a>
             <a class="main__cta-btn">Связаться</a>
           </div>
         </div>
@@ -57,15 +119,16 @@
               <div class="card__in">
                 <div class="card__in-up">
                   <div class="card__title-box">
-                    <h1 class="title">Pyzhov Saveliy</h1>
+                    <h1 class="title" itemprop="name">Pyzhov Saveliy</h1>
                     <h2 class="subtitle">Tap on card</h2>
                   </div>
                   <div class="card__qr">
-                    <a target="_blank" href="https://t.me/quofn" class="qr">
+                    <a target="_blank" href="https://t.me/quofn" class="qr" aria-label="Перейти в Telegram">
                       <img
                         class="qr__img"
                         src="./images/qr.png"
-                        alt="QR Code"
+                        alt="QR код для перехода в Telegram"
+                        loading="lazy"
                       />
                     </a>
                   </div>
@@ -74,12 +137,14 @@
                   <img
                     class="card__image"
                     src="./images/i_am.jpg"
-                    alt="Photo"
+                    alt="Фотография Савелия Пыжова"
+                    itemprop="image"
+                    loading="lazy"
                   />
                 </div>
                 <div class="card__footer">
                   <div class="card__brand">
-                    <h4 class="card__brand-title">Layout Designer</h4>
+                    <h4 class="card__brand-title">Frontend Developer</h4>
                   </div>
                   <div class="card__age">
                     <p class="card__age-title">EXP Date</p>
@@ -89,7 +154,6 @@
               </div>
             </div>
 
-            <!-- Задняя сторона -->
             <div class="card__face card__face--back">
               <div class="card__in">
                 <div class="card__back-content">
@@ -101,11 +165,12 @@
                     <p>👨‍💻 GitHub: https://github.com/QuoFN</p>
                   </div>
                   <div class="card__qr back-qr">
-                    <a target="_blank" href="https://t.me/quofn" class="qr">
+                    <a target="_blank" href="https://t.me/quofn" class="qr" aria-label="Перейти в Telegram">
                       <img
                         class="qr__img"
                         src="./images/qr.png"
-                        alt="QR Code"
+                        alt="QR код для перехода в Telegram"
+                        loading="lazy"
                       />
                     </a>
                   </div>
@@ -117,19 +182,17 @@
       </div>
     </main>
 
-    <section class="about" id="me">
+    <section class="about" id="me" itemscope itemtype="https://schema.org/Person">
       <div class="container">
         <div class="about__content">
-          <!-- Левая часть - информация -->
           <div class="about__info">
             <div class="about__image">
-              <img src="./images/i_am.jpg" alt="Pyzhov Saveliy" />
+              <img src="./images/i_am.jpg" alt="Фотография Савелия Пыжова - Frontend разработчика" itemprop="image" loading="lazy" />
             </div>
             <div class="about__text">
-              <h2>Frontend Developer & UI/UX Enthusiast</h2>
-              <p>
-                Превращаю сложные задачи в элегантные и интуитивные
-                веб-интерфейсы. Создаю не просто код, а цифровые впечатления.
+              <h2 itemprop="jobTitle">Frontend Developer & UI/UX Enthusiast</h2>
+              <p itemprop="description">
+                Превращаю сложные задачи в элегантные и интуитивные веб-интерфейсы. Создаю не просто код, а цифровые впечатления.
               </p>
               <div class="about__stats">
                 <div class="stat">
@@ -148,7 +211,6 @@
             </div>
           </div>
 
-          <!-- Правая часть - навыки -->
           <div class="skills">
             <h3>Технические навыки</h3>
 
@@ -209,31 +271,27 @@
         <h2 class="gallery__title">Мои проекты</h2>
         <p class="gallery__subtitle">От идеи до реализации</p>
 
-        <!-- Фильтры -->
         <div class="gallery-filters">
-          <button class="filter-btn active" data-filter="all">
-            Все проекты
-          </button>
-          <button class="filter-btn" data-filter="javascript">
-            JavaScript
-          </button>
+          <button class="filter-btn active" data-filter="all">Все проекты</button>
+          <button class="filter-btn" data-filter="javascript">JavaScript</button>
           <button class="filter-btn" data-filter="vite">Vite</button>
           <button class="filter-btn" data-filter="jquery">jQuery</button>
           <button class="filter-btn" data-filter="html-css">HTML/CSS</button>
         </div>
-        <!-- Сетка проектов -->
+        
         <div class="projects-grid">
-          <!-- Проект 1 -->
-          <div class="project-card" data-category="javascript jquery">
+          <div class="project-card" data-category="javascript jquery" itemscope itemtype="https://schema.org/CreativeWork">
             <div class="project-card__image">
               <img
                 src="./images/Alternate.png"
-                alt="Рекламный сайт Автосервиса"
+                alt="Рекламный сайт автосервиса Finsweet - проект фронтенд разработчика"
+                loading="lazy"
+                itemprop="image"
               />
               <div class="project-card__overlay">
-                <h3 class="project-card__title">Finsweet</h3>
-                <p class="project-card__desc">
-                  Реакламный сайт для автосервиса
+                <h3 class="project-card__title" itemprop="name">Finsweet</h3>
+                <p class="project-card__desc" itemprop="description">
+                  Рекламный сайт для автосервиса с современным дизайном
                 </p>
                 <div class="project-card__tech">
                   <span class="tech-tag">JavaScript</span>
@@ -245,30 +303,32 @@
                     href="https://quofn.github.io/Alternate-layout/"
                     class="project-link"
                     target="_blank"
-                    >Демо</a
-                  >
+                    rel="noopener noreferrer"
+                    itemprop="url"
+                  >Демо</a>
                   <a
                     href="https://github.com/QuoFN/Alternate-layout"
                     class="project-link"
                     target="_blank"
-                    >Код</a
-                  >
+                    rel="noopener noreferrer"
+                  >Код</a>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Проект 2 -->
-          <div class="project-card" data-category="vite javascript">
+          <div class="project-card" data-category="vite javascript" itemscope itemtype="https://schema.org/CreativeWork">
             <div class="project-card__image">
               <img
                 src="./images/Womazing.png"
-                alt="Интенет магазин одежды с большим функционалом"
+                alt="Интернет магазин одежды Womazing с большим функционалом"
+                loading="lazy"
+                itemprop="image"
               />
               <div class="project-card__overlay">
-                <h3 class="project-card__title">Womazing</h3>
-                <p class="project-card__desc">
-                  Интенет магазин одежды с большим функционалом
+                <h3 class="project-card__title" itemprop="name">Womazing</h3>
+                <p class="project-card__desc" itemprop="description">
+                  Интернет магазин одежды с расширенным функционалом и базой данных
                 </p>
                 <div class="project-card__tech">
                   <span class="tech-tag">JavaScript</span>
@@ -280,30 +340,32 @@
                     href="https://quofn.github.io/graduate_work/"
                     class="project-link"
                     target="_blank"
-                    >Демо</a
-                  >
+                    rel="noopener noreferrer"
+                    itemprop="url"
+                  >Демо</a>
                   <a
                     href="https://github.com/QuoFN/graduate_work/tree/master/docs"
                     class="project-link"
                     target="_blank"
-                    >Код</a
-                  >
+                    rel="noopener noreferrer"
+                  >Код</a>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Проект 3 -->
-          <div class="project-card" data-category="html-css javascript">
+          <div class="project-card" data-category="html-css javascript" itemscope itemtype="https://schema.org/CreativeWork">
             <div class="project-card__image">
               <img
                 src="./images/WakeBake.png"
-                alt="Обучающая программа по испечению тортов"
+                alt="Обучающая программа по выпечке тортов Wake & Bake"
+                loading="lazy"
+                itemprop="image"
               />
               <div class="project-card__overlay">
-                <h3 class="project-card__title">Wake & Bake</h3>
-                <p class="project-card__desc">
-                  Обучающая программа по испечению тортов
+                <h3 class="project-card__title" itemprop="name">Wake & Bake</h3>
+                <p class="project-card__desc" itemprop="description">
+                  Обучающая программа по искусству выпечки тортов и десертов
                 </p>
                 <div class="project-card__tech">
                   <span class="tech-tag">HTML5</span>
@@ -315,14 +377,15 @@
                     href="https://quofn.github.io/pancake/"
                     class="project-link"
                     target="_blank"
-                    >Демо</a
-                  >
+                    rel="noopener noreferrer"
+                    itemprop="url"
+                  >Демо</a>
                   <a
                     href="https://github.com/QuoFN/pancake"
                     class="project-link"
                     target="_blank"
-                    >Код</a
-                  >
+                    rel="noopener noreferrer"
+                  >Код</a>
                 </div>
               </div>
             </div>
@@ -330,93 +393,24 @@
         </div>
       </div>
     </section>
+
     <footer class="footer">
       <div class="container">
         <div class="footer__content">
           <div class="footer__brand">
-            <span class="logo">Савелий</span>
-            <p class="description">
-              Фронтенд разработчик, создающий современные и интерактивные
-              веб-приложения
+            <span class="logo" itemprop="name">Савелий</span>
+            <p class="description" itemprop="description">
+              Фронтенд разработчик, создающий современные и интерактивные веб-приложения
             </p>
             <div class="footer__social">
-              <a href="mailto:savpyzhov@mail.ru" class="social-link"
-                ><svg
-                  version="1.0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="1280.000000pt"
-                  height="821.000000pt"
-                  viewBox="0 0 1280.000000 821.000000"
-                  preserveAspectRatio="xMidYMid meet"
-                >
-                  <g
-                    transform="translate(0.000000,821.000000) scale(0.100000,-0.100000)"
-                    fill="#8dfbcd"
-                    stroke="none"
-                  >
-                    <path
-                      d="M615 8204 c-129 -27 -208 -67 -284 -143 -31 -31 -72 -83 -90 -114
-               -17 -30 -59 -83 -92 -118 -72 -73 -122 -170 -138 -267 -8 -48 -11 -1050 -9
-               -3612 3 -3474 3 -3546 22 -3595 63 -162 179 -276 336 -331 54 -19 184 -19
-               5945 -19 5037 0 5897 2 5940 14 129 37 248 129 314 244 17 30 59 83 92 118 72
-               73 122 170 138 267 8 48 11 1050 9 3612 -3 3472 -3 3546 -22 3595 -62 159
-               -172 269 -331 331 -49 19 -148 19 -5930 20 -3234 1 -5889 0 -5900 -2z m10595
-               -704 c-1 -8 -4713 -2863 -4724 -2863 -10 1 -4703 2846 -4718 2861 -4 4 2119 7
-               4718 7 2598 0 4724 -2 4724 -5z m928 -4886 l-3 -1556 -850 767 c-467 422
-               -1394 1258 -2058 1858 -1024 925 -1205 1092 -1190 1101 85 47 4072 2471 4083
-               2482 13 13 15 -158 18 -1541 1 -855 1 -2255 0 -3111z m-9373 3276 c1144 -694
-               2081 -1263 2083 -1265 1 -1 -84 -81 -190 -177 -395 -357 -3964 -3581 -3980
-               -3596 -17 -14 -18 137 -18 3153 0 2533 3 3165 13 3157 6 -5 948 -578 2092
-               -1272z m5356 -1497 c157 -142 791 -715 1409 -1273 618 -558 1457 -1316 1865
-               -1683 673 -608 740 -672 743 -702 3 -31 1 -33 -21 -27 -14 4 -436 378 -938
-               832 -1618 1461 -3090 2790 -3251 2934 -154 139 -156 141 -136 159 11 9 25 17
-               32 17 6 0 140 -116 297 -257z m282 -636 c452 -408 1382 -1248 2067 -1866 685
-               -618 1260 -1137 1277 -1155 l33 -31 -5430 0 c-2987 0 -5429 3 -5427 7 2 6 899
-               818 3062 2772 572 516 1054 952 1071 968 l31 29 509 -309 c280 -170 525 -317
-               544 -327 55 -29 249 -33 321 -7 30 11 290 164 579 340 289 176 528 321 533
-               321 4 1 377 -333 830 -742z"
-                    />
-                  </g>
+              <a href="mailto:savpyzhov@mail.ru" class="social-link" aria-label="Написать на email" itemprop="email">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                 </svg>
               </a>
-              <a href="https://github.com/QuoFN" class="social-link">
-                <svg
-                  version="1.1"
-                  id="Capa_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  x="0px"
-                  y="0px"
-                  width="18px"
-                  height="18px"
-                  viewBox="0 0 438.549 438.549"
-                  style="enable-background: new 0 0 438.549 438.549"
-                  xml:space="preserve"
-                >
-                  <g>
-                    <path
-                      d="M409.132,114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736,15.166,259.057,5.365,219.271,5.365
-		c-39.781,0-76.472,9.804-110.063,29.408c-33.596,19.605-60.192,46.204-79.8,79.8C9.803,148.168,0,184.854,0,224.63
-		c0,47.78,13.94,90.745,41.827,128.906c27.884,38.164,63.906,64.572,108.063,79.227c5.14,0.954,8.945,0.283,11.419-1.996
-		c2.475-2.282,3.711-5.14,3.711-8.562c0-0.571-0.049-5.708-0.144-15.417c-0.098-9.709-0.144-18.179-0.144-25.406l-6.567,1.136
-		c-4.187,0.767-9.469,1.092-15.846,1c-6.374-0.089-12.991-0.757-19.842-1.999c-6.854-1.231-13.229-4.086-19.13-8.559
-		c-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559
-		c-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-0.951-2.568-2.098-3.711-3.429c-1.142-1.331-1.997-2.663-2.568-3.997
-		c-0.572-1.335-0.098-2.43,1.427-3.289c1.525-0.859,4.281-1.276,8.28-1.276l5.708,0.853c3.807,0.763,8.516,3.042,14.133,6.851
-		c5.614,3.806,10.229,8.754,13.846,14.842c4.38,7.806,9.657,13.754,15.846,17.847c6.184,4.093,12.419,6.136,18.699,6.136
-		c6.28,0,11.704-0.476,16.274-1.423c4.565-0.952,8.848-2.383,12.847-4.285c1.713-12.758,6.377-22.559,13.988-29.41
-		c-10.848-1.14-20.601-2.857-29.264-5.14c-8.658-2.286-17.605-5.996-26.835-11.14c-9.235-5.137-16.896-11.516-22.985-19.126
-		c-6.09-7.614-11.088-17.61-14.987-29.979c-3.901-12.374-5.852-26.648-5.852-42.826c0-23.035,7.52-42.637,22.557-58.817
-		c-7.044-17.318-6.379-36.732,1.997-58.24c5.52-1.715,13.706-0.428,24.554,3.853c10.85,4.283,18.794,7.952,23.84,10.994
-		c5.046,3.041,9.089,5.618,12.135,7.708c17.705-4.947,35.976-7.421,54.818-7.421s37.117,2.474,54.823,7.421l10.849-6.849
-		c7.419-4.57,16.18-8.758,26.262-12.565c10.088-3.805,17.802-4.853,23.134-3.138c8.562,21.509,9.325,40.922,2.279,58.24
-		c15.036,16.18,22.559,35.787,22.559,58.817c0,16.178-1.958,30.497-5.853,42.966c-3.9,12.471-8.941,22.457-15.125,29.979
-		c-6.191,7.521-13.901,13.85-23.131,18.986c-9.232,5.14-18.182,8.85-26.84,11.136c-8.662,2.286-18.415,4.004-29.263,5.146
-		c9.894,8.562,14.842,22.077,14.842,40.539v60.237c0,3.422,1.19,6.279,3.572,8.562c2.379,2.279,6.136,2.95,11.276,1.995
-		c44.163-14.653,80.185-41.062,108.068-79.226c27.88-38.161,41.825-81.126,41.825-128.906
-		C438.536,184.851,428.728,148.168,409.132,114.573z"
-                    />
-                  </g>
+              <a href="https://github.com/QuoFN" class="social-link" aria-label="Перейти на GitHub" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                 </svg>
               </a>
             </div>
@@ -425,8 +419,8 @@
           <div class="footer__nav">
             <h4>Навигация</h4>
             <ul>
-              <li><a href="#hero">Обо мне</a></li>
-              <li><a href="#me">Навыки</a></li>
+              <li><a href="#top">Главная</a></li>
+              <li><a href="#me">Обо мне</a></li>
               <li><a href="#gallery">Проекты</a></li>
               <li><a href="#contact">Контакты</a></li>
             </ul>
@@ -435,8 +429,8 @@
           <div class="footer__contact" id="contact">
             <h4>Контакты</h4>
             <div class="contact-item">
-              <a href="https://t.me/quofn" class="card__qr">
-                <img src="./images/qr.png" class="qr__img" alt="qrCode" />
+              <a href="https://t.me/quofn" class="card__qr" aria-label="Перейти в Telegram" rel="noopener noreferrer">
+                <img src="./images/qr.png" class="qr__img" alt="QR код для связи в Telegram" loading="lazy" />
               </a>
               <a class="main__cta-btn footer__cta">Связаться</a>
             </div>
@@ -444,10 +438,10 @@
         </div>
 
         <div class="footer__bottom">
-          <div class="copyright">© 2025 Saveliy. Все права защищены.</div>
+          <div class="copyright">© 2025 Савелий Пыжов. Все права защищены.</div>
           <div class="footer-links">
-            <a href="#">Политика конфиденциальности</a>
-            <a href="#">Условия использования</a>
+            <a href="/privacy">Политика конфиденциальности</a>
+            <a href="/terms">Условия использования</a>
           </div>
         </div>
       </div>
@@ -455,8 +449,8 @@
     
     <div class="modal-overlay" id="modalOverlay">
       <div class="modal">
-        <button class="modal__close" id="modalClose">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <button class="modal__close" id="modalClose" aria-label="Закрыть модальное окно">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
@@ -486,6 +480,12 @@
         </div>
       </div>
     </div>
+
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Наверх" tabindex="0">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M12 20L12 4M12 4L5 11M12 4L19 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
 
     <script src="js/main.js"></script>
   </body>
