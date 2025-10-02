@@ -75,4 +75,9 @@ a {
 
 address {
   font-style: normal;
+}
+
+img, .card__image, .qr__img {
+  height: auto;
+  max-width: 100%;
 }/*# sourceMappingURL=reset.css.map */

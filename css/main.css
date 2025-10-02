@@ -221,6 +221,18 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (max-width: 768px) and (prefers-reduced-data: no-preference) {
+  body {
+    -webkit-animation: gradient 30s ease infinite;
+            animation: gradient 30s ease infinite;
+    background-size: 200% 200%;
+  }
+  .parallax-bg {
+    -webkit-transform: none !important;
+        -ms-transform: none !important;
+            transform: none !important;
+  }
+}
 body {
   min-height: 100%;
   width: 100%;
@@ -230,6 +242,9 @@ body {
   background-size: 400% 400%;
   -webkit-animation: gradient 15s ease infinite;
           animation: gradient 15s ease infinite;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 section {
@@ -1145,7 +1160,7 @@ section {
 
 .card__image {
   width: 100%;
-  max-height: 200px;
+  height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 15px;
@@ -2253,4 +2268,11 @@ section {
     width: 18px;
     height: 18px;
   }
+}
+
+.reduced-animations * {
+  -webkit-animation-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+  -webkit-animation-iteration-count: 1 !important;
+          animation-iteration-count: 1 !important;
 }/*# sourceMappingURL=main.css.map */

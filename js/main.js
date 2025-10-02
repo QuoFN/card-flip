@@ -167,6 +167,14 @@ function initGalleryFilters() {
   });
 }
 
+function optimizeAnimations() {
+  if ('connection' in navigator) {
+    if (navigator.connection.saveData || navigator.connection.effectiveType.includes('2g')) {
+      document.body.classList.add('reduced-animations');
+    }
+  }
+}
+
 // Projects animation
 function animateProjects() {
   document.querySelectorAll(".project-card").forEach((card, index) => {
@@ -330,4 +338,5 @@ document.addEventListener("DOMContentLoaded", function () {
   initScrollToTop();
   updateScrollHandler();
   seoAnalytics.init();
+  optimizeAnimations();
 });
