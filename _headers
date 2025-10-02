@@ -1,0 +1,41 @@
+# Кэширование изображений
+/*.jpg
+  Cache-Control: public, immutable, max-age=31536000
+/*.jpeg
+  Cache-Control: public, immutable, max-age=31536000
+/*.png
+  Cache-Control: public, immutable, max-age=31536000
+/*.gif
+  Cache-Control: public, immutable, max-age=31536000
+/*.webp
+  Cache-Control: public, immutable, max-age=31536000
+/*.svg
+  Cache-Control: public, immutable, max-age=31536000
+/*.ico
+  Cache-Control: public, immutable, max-age=31536000
+
+# Кэширование CSS и JS
+/*.css
+  Cache-Control: public, immutable, max-age=15552000
+/*.js
+  Cache-Control: public, immutable, max-age=15552000
+
+# Кэширование шрифтов
+/*.woff
+  Cache-Control: public, immutable, max-age=31536000
+  Access-Control-Allow-Origin: *
+/*.woff2
+  Cache-Control: public, immutable, max-age=31536000
+  Access-Control-Allow-Origin: *
+/*.ttf
+  Cache-Control: public, immutable, max-age=31536000
+  Access-Control-Allow-Origin: *
+/*.eot
+  Cache-Control: public, immutable, max-age=31536000
+  Access-Control-Allow-Origin: *
+
+# HTML - короткое кэширование
+/*.html
+  Cache-Control: public, must-revalidate, max-age=3600
+/
+  Cache-Control: public, must-revalidate, max-age=3600
